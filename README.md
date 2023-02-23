@@ -1,8 +1,18 @@
-Project reqiures API keys in files .env: DEVELOPER_KEY for YouTube. API_TOKEN for Lichess.
+Project reqiures such variables in files .env: 
+FLASK_DEBUG
+DATABASE_URL
+SQL_HOST
+SQL_PORT
+DATABASE
+DEVELOPER_KEY for YouTube 
+API_TOKEN for Lichess
 
+Variables for .env.prod.db:
+POSTGRES_USER
+POSTGRES_PASSWORD
+POSTGRES_DB
 
 To make a container use this comands
-
 docker-compose -f docker-compose.prod.yml up -d --build
 docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
 
