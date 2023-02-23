@@ -1,4 +1,4 @@
-Project reqiures API keys in files 
+Project reqiures API keys in files .env: DEVELOPER_KEY for YouTube. API_TOKEN for Lichess.
 
 
 To make a container use this comands
