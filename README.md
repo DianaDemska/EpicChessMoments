@@ -1,3 +1,6 @@
+Project reqiures API keys in files 
+
+
 To make a container use this comands
 
 docker-compose -f docker-compose.prod.yml up -d --build
