@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-8 is-offset-2">
+    <h3 class="title">Most epic chess moments!</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <table class="table is-striped is-fullwidth">
+            <thead>
+                <tr>
+                    <th>White</th>
+                    <th>Black</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>White</th>
+                    <th>Black</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>View</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for game in games %}
+                <tr>
+                    <td>{{ game.white }}</td>
+                    <td>{{ game.black }}</td>
+                    <td><a class="button is-warning" href="{{ url_for('overview.editGame', id=game.id) }}"
+                            title="Edit">Edit</a>
+                    </td>
+                    <td><a class="button is-danger" href="{{ url_for('overview.deleteGame', id=game.id) }}"
+                            title="Delete">Delete</a>
+                    </td>
+                    <td><a class="button is-info" href="https://lichess.org/{{game.id}}" target="_blank"
+                            title="View game">View
+                            game</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

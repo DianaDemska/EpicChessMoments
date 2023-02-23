@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-8 is-offset-2">
+    <h3 class="title">Most epic chess moments!</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <table class="table is-striped is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>View</th>
+                    <th>Epic Moments</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>View</th>
+                    <th>Epic Moments</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for stream in streams %}
+                <tr>
+                    <td>{{ stream.userName }}</td>
+                    <td><a href="https://www.youtube.com/watch?v={{stream.idVideo}}" title="{{stream.name}}"
+                            style="text-decoration: underline">{{stream.name}}</a>
+                    </td>
+                    <td><a class="button is-warning" href="{{ url_for('overview.editStream', id=stream.idVideo) }}"
+                            title="Edit">Edit</a>
+                    </td>
+                    <td><a class="button is-danger" href="{{ url_for('overview.deleteStream', id=stream.idVideo) }}"
+                            title="Delete">Delete</a>
+                    </td>
+                    <td><a class="button is-info" href="{{ url_for('overview.allGames', id=stream.idVideo) }}"
+                            title="View games">View
+                            games</a>
+                    </td>
+                    <td><a class="button is-link" href="{{ url_for('overview.viewResult', id=stream.idVideo) }}"
+                            title="View timestamps of epic moments">Epic moments</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

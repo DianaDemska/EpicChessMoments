@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Most epic chess moments!</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="/getTimming">
+            <div class="field">
+                <label class="label">Username on Lichess</label>
+                <div class="control">
+                    <input class="input is-large" type="text" name="userName" placeholder="Write username on lichess">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Youtube video id</label>
+                <div class="control">
+                    <input class="input is-large" type="text" name="idVideo"
+                        placeholder="Id starts from / or from = in url">
+                </div>
+            </div>
+            <div class="field">
+                <label class="checkbox">
+                    <input type="checkbox" name="isLive" value="True">
+                    Stream is Live now
+                </label>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Submit</button>
+        </form>
+        {% if info %}
+        <div class="box">
+            <div class="field">
+                <p>{{ info }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

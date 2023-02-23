@@ -1,0 +1,8 @@
+Flask==2.2.2
+Flask-SQLAlchemy==3.0.2
+psycopg2-binary==2.9.5
+gunicorn==20.1.0
+google-api-python-client==2.72.0
+google-auth-httplib2==0.1.0
+google-auth-oauthlib==0.8.0
+berserk-downstream==0.11.11
