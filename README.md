@@ -1,19 +1,22 @@
 Project reqiures such variables in files .env: 
-FLASK_DEBUG
-DATABASE_URL
-SQL_HOST
-SQL_PORT
-DATABASE
-DEVELOPER_KEY for YouTube 
+FLASK_DEBUG,
+DATABASE_URL,
+SQL_HOST,
+SQL_PORT,
+DATABASE,
+DEVELOPER_KEY for YouTube,
 API_TOKEN for Lichess
 
 Variables for .env.prod.db:
-POSTGRES_USER
-POSTGRES_PASSWORD
+POSTGRES_USER,
+POSTGRES_PASSWORD,
 POSTGRES_DB
 
-To make a container use this comands
+
+To make a container use this comands:
+
 docker-compose -f docker-compose.prod.yml up -d --build
+
 docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
 
 This program gives the timestamps of the all lost games during the stream.
@@ -22,8 +25,6 @@ Example:
 user = Zhigalko_Sergei
 
 id = dec17AekrSs
-
-     (xG2YjKtLGWA)
 
 or
 
